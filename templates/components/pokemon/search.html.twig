@@ -1,0 +1,18 @@
+<div {{ attributes }}>
+    <div class="row">
+        <div class="form-group">
+            <label for="search">Search</label>
+            <input type="text" data-model="search" class="form-control" id="search" aria-describedby="searchHelp"
+                   placeholder="Search Pokémon">
+            <small id="searchHelp" class="form-text text-muted">Try typing the name of the Pokémon you're looking
+                for</small>
+        </div>
+    </div>
+    <div class="row">
+        {% for pokemon in this.results %}
+            <div class="col-6 col-md-4 mb-2">
+                {{ component('pokemon:pokemon', {idOrName: pokemon}) }}
+            </div>
+        {% endfor %}
+    </div>
+</div>

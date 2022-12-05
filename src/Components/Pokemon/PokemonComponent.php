@@ -23,7 +23,10 @@ class PokemonComponent
             return $this->data;
         }
 
-        return $this->data = $this->service->getPokemon($this->idOrName);
+        $this->data = $this->service->getPokemon($this->idOrName);
+
+        dump($this->data);
+        return $this->data;
     }
 
     public function getName(): string
@@ -34,5 +37,24 @@ class PokemonComponent
     public function getImage(): string
     {
         return $this->getData()['sprites']['other']['official-artwork']['front_default'] ?? '';
+    }
+
+    public function getType()
+    {
+        $types = $this->getData()['types'];
+
+        $names = array_map(fn($type) => $type['type']['name'], $types);
+
+        return implode(' / ', $names);
+    }
+
+    public function getStats()
+    {
+        return $this->getData()['stats'];
+    }
+
+    public function getId()
+    {
+        return $this->getData()['id'];
     }
 }

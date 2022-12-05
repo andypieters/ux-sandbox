@@ -4,8 +4,14 @@
 
 {% block body %}
     <div class="container">
-        <h1>pokemon</h1>
-        {{ component('pokemon:list', {limit: 20}) }}
-    </div>
+        <h1>Pokémon</h1>
 
+        <h3>Random Pokemon</h3>
+        <div class="row">
+            {{ component('pokemon:random') }}
+            {{ component('pokemon:random') }}
+            {{ component('pokemon:random') }}
+            {{ component('pokemon:random') }}
+        </div>
+    </div>
 {% endblock %}

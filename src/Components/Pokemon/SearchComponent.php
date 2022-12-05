@@ -7,8 +7,8 @@ use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 use Symfony\UX\LiveComponent\DefaultActionTrait;
 
-#[AsLiveComponent('pokemon:list')]
-class ListComponent
+#[AsLiveComponent('pokemon:search')]
+class SearchComponent
 {
     use DefaultActionTrait;
 
