@@ -48,7 +48,10 @@ class PokemonService
             $results = $this->getAllNames();
 
             if (!empty($search)) {
-                $results = array_filter($results, fn($pokemon) => str_contains($pokemon, $search));
+                $results = array_filter(
+                    $results,
+                    fn($pokemon) => str_contains(strtolower($pokemon), strtolower($search))
+                );
             }
 
             return array_slice($results, 0, $limit);
